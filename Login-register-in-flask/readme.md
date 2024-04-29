@@ -26,6 +26,8 @@ pip install flask-sqlalchemy
 python app.py 
 
 <br>
+
+
 ## a quick view on how to start the project 
 
 [Looks]("https://github.com/vectorsigmaissomewhere/Flask-Projects/blob/main/Login-register-in-flask/project-result/thingstoremember.PNG")
