@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../StyleSheet/register.css">
+    <link rel="stylesheet" href="../static/register.css">
+    
     <script>
         function validate() {
             var fullname = document.form.name.value;
@@ -40,12 +41,13 @@
             }
             return true; 
         }
-    </script>
+    </script>    
 </head>
 <body>
 <div class="container">
     <form action="" method="POST" name="form" onsubmit="return validate()"> 
-        <h2>Register</h2>
+        <h2>Register to SwaggyBlogger</h2>
+        <div class="content">
         <div class="input-box">
             <label for="name">Full Name</label>
             <input type="text" placeholder="Enter full name" name="name" required>
@@ -67,8 +69,8 @@
             <input type="password" placeholder="Enter new password" name="password" required>
         </div>
         <div class="input-box">
-            <label for="confirm-password">Confirm Password</label> 
-            <input type="password" placeholder="Confirm your password" name="confirmPassword" required> 
+            <label for="confirm-password">Confirm Password</label> <!-- Corrected label -->
+            <input type="password" placeholder="Confirm your password" name="confirmPassword" required> <!-- Corrected name attribute -->
         </div>
         <span class="gender-tile">Gender</span>
         <div class="gender-category">
@@ -85,6 +87,7 @@
         </div>
         <div class="button-container">
             <button type="submit">Register</button>
+        </div>
         </div>
     </form> 
 </div>
