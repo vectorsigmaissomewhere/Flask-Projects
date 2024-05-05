@@ -121,6 +121,7 @@ h2{
 
 .button-container button:hover{
     background-image: linear-gradient(to right, #61045f, #aa076b);
+    transform: translateY(-3px);
 }
 
 @media(max-width:600px){
@@ -147,5 +148,7 @@ h2{
         width: 0;
     }
 }
+
+
 
 
