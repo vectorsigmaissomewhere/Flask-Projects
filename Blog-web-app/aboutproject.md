@@ -3,3 +3,7 @@
 5/2/2024 : created registration functionality
 
 5/3/2024 : created login functionality 
+
+5/4/2024 : wrote some css for login
+
+5/5/2024: wrote some css for login
