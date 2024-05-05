@@ -6,4 +6,4 @@
 
 5/4/2024 : wrote some css for login
 
-5/5/2024: wrote some css for login
+5/5/2024: wrote some css for login also worked in home page
