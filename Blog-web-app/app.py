@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, flash, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -38,9 +38,12 @@ with app.app_context():
 
 
 # creating route for Home page
-@app.route('/')
-def home():
-    return render_template('home.html')
+@app.route('/home')
+def dashboard():
+    if 'logged_in' in session:
+        return render_template('home.html')
+    else:
+        return redirect('/login')
 
 # creating route for Register Page
 @app.route('/register', methods=['GET','POST'])
@@ -80,12 +83,37 @@ def login():
     return render_template('login.html')
 
 @app.route('/home')
-def index():
+def home():
     if 'logged_in' in session:
-        return f'Welcome, {session["username"]}! This is your dashboard.'
+        flash({session["username"]})
     else:
         return redirect('/login')
+ 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
+
+@app.route('/userprofile')
+def userprofile():
+    return render_template('userprofile.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have successfully logged out")
+    return redirect(url_for('logout_page'))
+
+@app.route('/logout_page')
+def logout_page():
+    return render_template('logout.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
