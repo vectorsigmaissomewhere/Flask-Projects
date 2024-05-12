@@ -11,14 +11,17 @@
         <div class="navbar">
             <a href="home.html"><img src="../images/logo2.jpg" class="logo"></a>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="termsandconditions.html">Terms</a></li>    
-                <li><a href="userprofile.html">Profile</a></li>
-                <li><a href="login.html">Login</a></li>   <!-- Will show login or register in one time-->
-                <li><a href="register.html">Register</a></li>
-                <li><a href="logout.html">Logout</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('terms') }}">Terms</a></li>   
+                {% if 'logged_in' in session %}
+                <li><a href="{{ url_for('userprofile') }}">Welcome, {{ session['username'] }}</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
             </ul>
         </div>
         <div class="content">
