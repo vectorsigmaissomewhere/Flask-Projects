@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aboutus</title>
+    <link rel="stylesheet" type="text/css" href="../static/about.css">
 </head>
 <body>
     {% extends "layout.html" %}
 {% block content %}
-    <h1>This is the about us page</h1>
     <section>
         <div class="heading">
             <h1>About us</h1>
@@ -20,7 +20,7 @@
                 <button class="cta-button"><p color="black">Learn More</p></button>
             </div>
             <div class="hero-image">
-                <img src="veg.jpg">
+                <img src="{{ url_for('static',filename='images/veg.jpg')}}">
             </div>
         </div>
     </section>
