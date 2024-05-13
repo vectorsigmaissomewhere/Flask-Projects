@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/userprofile.css">
     <title>Document</title>
 </head>
 <body>
@@ -10,7 +11,20 @@
     {% block head %}
     {% endblock %}
     {% block content %}
-    <h1>This is User profile page</h1>
+    <h1>Userprofile</h1>
+    <div class="userprofile-info">
+        <ul>
+            <li>Name : {{ name }}</li>
+            <li>Username : {{ username }}</li>
+            <li>Email : {{ email }}</li>
+            <li>Phonenumber : {{ phone }}</li>
+            {% if gender == "on" %}
+            <li>Male</li>
+            {% else %}
+            <li>Female</li>
+            {% endif %}
+        </ul>
+    </div>
     {% endblock %}
 </body>
 </html>
