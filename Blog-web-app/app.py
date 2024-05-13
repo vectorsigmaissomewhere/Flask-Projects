@@ -103,7 +103,16 @@ def terms():
 
 @app.route('/userprofile')
 def userprofile():
-    return render_template('userprofile.html')
+    username = session.get('username')
+    if username:
+        user = SomeUser.query.filter_by(username = username).first()
+        if user:
+            users = SomeUser.query.all()
+            return render_template('userprofile.html',name = user.name,username=user.username,email=user.email,phone=user.phone,gender=user.gender)
+        else:
+            return "User not found"
+    else:
+        return "No username found in session"
 
 @app.route('/logout')
 def logout():
@@ -117,3 +126,4 @@ def logout_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
