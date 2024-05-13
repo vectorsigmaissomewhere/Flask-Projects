@@ -9,7 +9,7 @@
 <body>
     <div class="banner">
         <div class="navbar">
-            <a href="home.html"><img src="../images/logo2.jpg" class="logo"></a>
+            <a href="home.html"><img src="{{ url_for('static',filename='images/logo2.jpg')}}" class="logo"></a>
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('blog') }}">Blog</a></li>
