@@ -1,0 +1,19 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userprofile-info {
+    margin: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userprofile-info li {
+    list-style: none;
+    font-weight: 100;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px; 
+}
