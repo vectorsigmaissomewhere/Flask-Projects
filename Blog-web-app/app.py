@@ -124,6 +124,39 @@ def logout():
 def logout_page():
     return render_template('logout.html')
 
+@app.route('/editprofile')
+def editprofile():
+    username = session.get('username')
+    if username:
+        user = SomeUser.query.filter_by(username = username).first()
+        if user:
+            users = SomeUser.query.all()
+            return render_template('editprofile.html',name = user.name,username=user.username,email=user.email,phone=user.phone,gender=user.gender)
+        else:
+            return "User not found"
+    else:
+        return "No username found in session"
+
+@app.route('/submit_edit', methods=["POST"])
+def submit_edit():
+    username = session.get('username')
+    if username:
+        user = SomeUser.query.filter_by(username=username).first()
+        if user:
+            user.name = request.form['name']
+            user.username = request.form['username']
+            user.email = request.form['email']
+            user.phone = request.form['phone']
+            user.gender = request.form['gender']
+
+            # Only update the password if a new one is provided
+            new_password = request.form['password']
+            if new_password:
+                user.password = generate_password_hash(new_password)
+                
+            db.session.commit()
+            return redirect('/userprofile')
+    return "User not found or not logged in"
+
 if __name__ == '__main__':
     app.run(debug=True)
-
