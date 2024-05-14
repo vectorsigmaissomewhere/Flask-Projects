@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/editprofile.css">
+    <title>Edit Profile</title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <h1>Edit Profile</h1>
+    <form action="/submit_edit" method="post">
+        <div class="userprofile-info">
+            <label>Full Name</label>
+            <input type="text" value="{{ name }}" name="name" required>
+            <label>Username</label>
+            <input type="text" value="{{ username }}" name="username" required>
+            <label>Email</label>
+            <input type="email" value="{{ email }}" name="email" required>
+            <label>Password</label>
+            <input type="password" placeholder="Enter a new password if you want to change it" name="password">
+            <label>Phone number</label>
+            <input type="text" value="{{ phone }}" name="phone" required>
+            <label>Gender</label>
+            <input type="text" value="{{ gender }}" name="gender">
+            <button type="submit" class="editprofile-btn">Submit</button>
+            <p class="check"><a href="{{ url_for('userprofile') }}">Check your profile</a></p>        
+        </div>
+    </form>
+    {% endblock %}
+</body>
+</html>
