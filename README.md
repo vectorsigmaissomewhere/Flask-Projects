@@ -1,3 +1,3 @@
 # Flask-Projects
 
-main are blog projedt
+main are blog project
