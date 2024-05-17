@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post-preview {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .blog-post-preview:hover {
+            background-color: #f0f0f0;
+        }
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .blog-description {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    {% extends "adminlayout.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <div class="blog-container">
+        {% for post in blog_posts %}
+        <div class="blog-post-preview" onclick="window.location.href='/blog/{{ post.id }}'">
+            <div class="blog-title">{{ post.title }}</div>
+            <div class="blog-description">{{ post.description | truncate(20, True, '...') }}</div>
+            {% if post.heading_image %}
+            <img class="blog-image" src="data:image/jpeg;base64,{{ post.heading_image }}" alt="Heading Image">
+            <a href="{{ url_for('editblog', post_id=post.id) }}">Edit Blog</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>
