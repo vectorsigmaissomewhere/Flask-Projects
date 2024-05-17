@@ -7,3 +7,5 @@
 5/4/2024 : wrote some css for login
 
 5/5/2024: wrote some css for login also worked in home page
+
+5/17/2024 : finally completed but still getting some bugs need to fix that
