@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminlayout</title>
+    <link rel="stylesheet" href="../static/layout.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static',filename='images/logo2.jpg')}}" class="logo"></a>
+        <ul>
+            <li><a href="{{ url_for('admindashboard') }}">Admin<br>Dashboard</a></li>
+            <li><a href="{{ url_for('addblog') }}">Add<br>Blog</a></li>
+            <li><a href="{{ url_for('viewblog') }}">View<br>Blog</a></li>
+            <li><a href="{{ url_for('edituser') }}">Edit<br>User</a></li>  
+            {% if 'logged_in' in session %}
+            <li>Welcome, {{ session['username'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
