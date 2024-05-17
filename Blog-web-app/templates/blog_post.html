@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-title {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .blog-paragraph {
+            margin: 20px 0;
+        }
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .comments-container {
+            margin-top: 30px;
+        }
+        .comment, .reply {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .reply {
+            margin-left: 40px;
+        }
+        .comment-form, .reply-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <div class="blog-container">
+        <div class="blog-title">{{ post.title }}</div>
+        <div class="blog-description">{{ post.description }}</div>
+        {% if post.heading_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.heading_image }}" alt="Heading Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.first_paragraph }}</div>
+        {% if post.second_paragraph_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.second_paragraph_image }}" alt="Second Paragraph Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.second_paragraph }}</div>
+        {% if post.third_paragraph_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.third_paragraph_image }}" alt="Third Paragraph Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.third_paragraph }}</div>
+        {% if post.fourth_paragraph_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.fourth_paragraph_image }}" alt="Fourth Paragraph Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.fourth_paragraph }}</div>
+        {% if post.fifth_paragraph_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.fifth_paragraph_image }}" alt="Fifth Paragraph Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.fifth_paragraph }}</div>
+        {% if post.sixth_paragraph_image %}
+        <img class="blog-image" src="data:image/jpeg;base64,{{ post.sixth_paragraph_image }}" alt="Sixth Paragraph Image">
+        {% endif %}
+        <div class="blog-paragraph">{{ post.sixth_paragraph }}</div>   
+    </div>
+    {% endblock %}
+</body>
+</html>
