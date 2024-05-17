@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog - {{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-title {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .blog-paragraph {
+            margin: 20px 0;
+        }
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .comments-container {
+            margin-top: 30px;
+        }
+        .comment, .reply {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .reply {
+            margin-left: 40px;
+        }
+        .comment-form, .reply-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% extends "adminlayout.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <div class="blog-container">
+        <form action="{{ url_for('update_blog', post_id=post.id) }}" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ post.title }}" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required>{{ post.description }}</textarea>
+            </div>
+            <div>
+                <label for="heading_image">Heading Image:</label>
+                <input type="file" id="heading_image" name="heading_image">
+                {% if post.heading_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.heading_image }}" alt="Heading Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="first_paragraph">First Paragraph:</label>
+                <textarea id="first_paragraph" name="first_paragraph" required>{{ post.first_paragraph }}</textarea>
+            </div>
+            <div>
+                <label for="second_paragraph_image">Second Paragraph Image:</label>
+                <input type="file" id="second_paragraph_image" name="second_paragraph_image">
+                {% if post.second_paragraph_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.second_paragraph_image }}" alt="Second Paragraph Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="second_paragraph">Second Paragraph:</label>
+                <textarea id="second_paragraph" name="second_paragraph" required>{{ post.second_paragraph }}</textarea>
+            </div>
+            <div>
+                <label for="third_paragraph_image">Third Paragraph Image:</label>
+                <input type="file" id="third_paragraph_image" name="third_paragraph_image">
+                {% if post.third_paragraph_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.third_paragraph_image }}" alt="Third Paragraph Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="third_paragraph">Third Paragraph:</label>
+                <textarea id="third_paragraph" name="third_paragraph" required>{{ post.third_paragraph }}</textarea>
+            </div>
+            <div>
+                <label for="fourth_paragraph_image">Fourth Paragraph Image:</label>
+                <input type="file" id="fourth_paragraph_image" name="fourth_paragraph_image">
+                {% if post.fourth_paragraph_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.fourth_paragraph_image }}" alt="Fourth Paragraph Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="fourth_paragraph">Fourth Paragraph:</label>
+                <textarea id="fourth_paragraph" name="fourth_paragraph" required>{{ post.fourth_paragraph }}</textarea>
+            </div>
+            <div>
+                <label for="fifth_paragraph_image">Fifth Paragraph Image:</label>
+                <input type="file" id="fifth_paragraph_image" name="fifth_paragraph_image">
+                {% if post.fifth_paragraph_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.fifth_paragraph_image }}" alt="Fifth Paragraph Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="fifth_paragraph">Fifth Paragraph:</label>
+                <textarea id="fifth_paragraph" name="fifth_paragraph" required>{{ post.fifth_paragraph }}</textarea>
+            </div>
+            <div>
+                <label for="sixth_paragraph_image">Sixth Paragraph Image:</label>
+                <input type="file" id="sixth_paragraph_image" name="sixth_paragraph_image">
+                {% if post.sixth_paragraph_image %}
+                <img class="blog-image" src="data:image/jpeg;base64,{{ post.sixth_paragraph_image }}" alt="Sixth Paragraph Image">
+                {% endif %}
+            </div>
+            <div>
+                <label for="sixth_paragraph">Sixth Paragraph:</label>
+                <textarea id="sixth_paragraph" name="sixth_paragraph" required>{{ post.sixth_paragraph }}</textarea>
+            </div>
+            <div>
+                <button type="submit">Update Blog</button>
+            </div>
+        </form>
+        <form action="{{ url_for('delete_blog', post_id=post.id) }}" method="post" style="margin-top: 20px;">
+            <button type="submit" style="background-color: red; color: white;">Delete Blog</button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
