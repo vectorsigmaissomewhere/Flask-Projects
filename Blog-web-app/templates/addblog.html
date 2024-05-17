@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="file"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    {% extends "adminlayout.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <div class="form-container">
+        <h2>Add Blog Post</h2>
+        <form action="/addblog" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Insert Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Insert Description</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="heading_image">Insert Heading Image</label>
+                <input type="file" id="heading_image" name="heading_image" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="first_paragraph">Insert First Paragraph</label>
+                <textarea id="first_paragraph" name="first_paragraph" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="second_paragraph_image">Insert Second Paragraph Image</label>
+                <input type="file" id="second_paragraph_image" name="second_paragraph_image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="second_paragraph">Insert Second Paragraph</label>
+                <textarea id="second_paragraph" name="second_paragraph" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="third_paragraph_image">Insert Third Paragraph Image</label>
+                <input type="file" id="third_paragraph_image" name="third_paragraph_image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="third_paragraph">Insert Third Paragraph</label>
+                <textarea id="third_paragraph" name="third_paragraph" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="fourth_paragraph_image">Insert Fourth Paragraph Image</label>
+                <input type="file" id="fourth_paragraph_image" name="fourth_paragraph_image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="fourth_paragraph">Insert Fourth Paragraph</label>
+                <textarea id="fourth_paragraph" name="fourth_paragraph" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="fifth_paragraph_image">Insert Fifth Paragraph Image</label>
+                <input type="file" id="fifth_paragraph_image" name="fifth_paragraph_image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="fifth_paragraph">Insert Fifth Paragraph</label>
+                <textarea id="fifth_paragraph" name="fifth_paragraph" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sixth_paragraph_image">Insert Sixth Paragraph Image</label>
+                <input type="file" id="sixth_paragraph_image" name="sixth_paragraph_image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="sixth_paragraph">Insert Sixth Paragraph</label>
+                <textarea id="sixth_paragraph" name="sixth_paragraph" rows="4" required></textarea>
+            </div>
+            <button  class="blogsubmit" type="submit">Submit</button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
