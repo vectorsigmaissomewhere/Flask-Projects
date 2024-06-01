@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<br><br><br><br><br>
+    <form method="GET" action="{{ url_for('quora') }}">
+        <input type="text" name="search_query" placeholder="Search by tags..." value="{{ search_query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <button><a href="{{ url_for('addquora') }}">Add Quora</a></button>
+
+    <h2>Questions</h2>
+    <div id="latest-questions" class="question-list">
+        <ul>
+            {% for question in questions %}
+                <li>
+                    <h3><a href="{{ url_for('question_detail', question_id=question.id) }}">{{ question.title }}</a></h3>
+                    <p>{{ question.description }}</p>
+                    <p><small>{{ question.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+                    <p><strong>Tags:</strong> {{ question.tags }}</p>
+                    <p>Votes: {{ question.vote_count() }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
