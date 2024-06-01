@@ -1,0 +1,904 @@
+:root{
+    --main-color: #e72463;
+    --box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f7f7f7;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+header.active {
+    background: #333;
+    color: #fff;
+}
+
+header .logo img{
+    max-width: 70px;
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .navbar a{
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 500;
+    padding-left: 3rem;
+    transition: .3s linear;
+}
+
+header .navbar a:hover{
+    color: var(--main-color);
+}
+
+header .icon {
+    display: flex;
+    align-items: center;
+}
+
+header .icon i{
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    margin-right: 1.5rem;
+}
+
+header .icon #menu-bar{
+    display: none;
+    font-size: 2.5rem;
+    color: #666;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #fff;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        transition: max-height 0.3s ease;
+    }
+
+    header .navbar.nav-toggle {
+        max-height: 300px;
+    }
+
+    header .navbar a {
+        padding: 1.5rem;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+
+    header .icon #menu-bar {
+        display: block;
+    }
+}
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../image/univone.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 2rem 9%;
+}
+
+.home .detail{
+    max-width: 50rem;
+    padding-top: 6.5rem;
+}
+
+.home .detail h1{
+    font-size: 4.5rem;
+    color: #333;
+}
+
+.home .detail p{
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.home .detail .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.home .detail .btn:hover{
+    background: #333;
+}
+
+.top-quora{
+    padding: 3rem 9%;
+    background: #fff;
+}
+
+.top-quora h1{
+    font-size: 3.5rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.top-quora .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.top-quora .box{
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: #f7f7f7;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.top-quora .box:hover{
+    transform: scale(1.1);
+}
+
+.top-quora .box .icon img{
+    max-width: 7rem;
+}
+
+.top-quora .box .detail{
+    padding-left: 1.5rem;
+}
+
+.top-quora .box .detail h4{
+    font-size: 2rem;
+    color: #333;
+    padding-bottom: .5rem;
+}
+
+.top-quora .box .detail span{
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.about{
+    padding: 3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.about .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .box{
+    flex: 1 1 40rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .box img{
+    height: 25rem;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.about .content{
+    flex: 1 1 40rem;
+}
+
+.about .content span{
+    color: var(--main-color);
+    font-size: 2rem;
+    display: block;
+}
+
+.about .content h3{
+    color: #333;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
+.about .content p{
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 2;
+}
+
+.about .content .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.about .content .btn:hover{
+    background: #333;
+}
+
+.contact{
+    padding: 3rem 9%;
+    background: #fff;
+}
+
+.contact .heading{
+    text-align: center;
+}
+
+.contact .heading span{
+    color: var(--main-color);
+    font-size: 2rem;
+    display: block;
+}
+
+.contact .heading h1{
+    font-size: 3.5rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.contact form{
+    max-width: 70rem;
+    margin: 2rem auto;
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.contact form .input-field{
+    margin: 1rem 0;
+}
+
+.contact form .input-field label{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.contact form .input-field label sup{
+    color: red;
+}
+
+.contact form .input-field input,
+.contact form .input-field textarea{
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem 0;
+    background: #f7f7f7;
+    border-radius: .5rem;
+    border: none;
+}
+
+.contact form .btn{
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.contact form .btn:hover{
+    background: #333;
+}
+
+.client{
+    padding: 3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.client img{
+    max-width: 15rem;
+    margin: 1rem;
+    transition: .3s linear;
+}
+
+.client img:hover{
+    filter: grayscale(1);
+    transform: scale(1.1);
+}
+
+footer{
+    background: #333;
+    color: #fff;
+}
+
+footer .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+    padding: 3rem 9%;
+}
+
+footer .content .box img{
+    max-width: 10rem;
+    padding-bottom: 1rem;
+}
+
+footer .content .box h3{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--main-color);
+    padding-bottom: 1rem;
+}
+
+footer .content .box a{
+    display: block;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: .7rem 0;
+}
+
+footer .content .box a:hover{
+    text-decoration: underline;
+}
+
+footer .content .box i{
+    font-size: 2.5rem;
+    margin: 1.5rem 1rem 0 0;
+    cursor: pointer;
+}
+
+footer .bottom{
+    padding: 1.5rem 9%;
+    background: #222;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+footer .bottom span{
+    color: var(--main-color);
+}
+
+/* Add Quora Form Styles */
+.form-group {
+    margin: 10rem auto 2rem;
+    max-width: 600px;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.form-group form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group form label {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group form input[type="text"],
+.form-group form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: #f7f7f7;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.form-group form textarea {
+    resize: none;
+}
+
+.querysubumit {
+    padding: 1rem;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.querysubumit:hover {
+    background: #333;
+}
+
+/* css for user profile*/
+.userprofile-container {
+    padding: 3rem 9%;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.userprofile-container h1 {
+    font-size: 3.5rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.userprofile-info {
+    padding: 2rem;
+    background: #f7f7f7;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.userprofile-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.userprofile-info li {
+    margin: 1rem 0;
+    font-size: 1.6rem;
+    color: #666;
+}
+
+.userprofile-info a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.userprofile-info a:hover {
+    text-decoration: underline;
+}
+
+/* FOR EDIT PROFILE PAGE */
+.editprofile-container {
+    padding: 3rem 9%;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.editprofile-container h1 {
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.userprofile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.userprofile-info label {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.userprofile-info input {
+    width: 100%;
+    padding: 1rem;
+    background: #f7f7f7;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.editprofile-btn {
+    padding: 1rem 3rem;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border: none;
+    align-self: center;
+}
+
+.editprofile-btn:hover {
+    background: #333;
+}
+
+.check {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.check a {
+    font-size: 1.4rem;
+    color: var(--main-color);
+    transition: color 0.3s ease;
+}
+
+.check a:hover {
+    color: #333;
+}
+/* quora */
+
+/* quora.html */
+
+/* Styles for Search Form */
+form {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+form input[type="text"] {
+    width: 70%;
+    padding: 1rem; 
+    font-size: 1.6rem; 
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 1rem 2rem;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem; 
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #333;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul p {
+    font-size: 1.6rem; 
+    color: #333;
+}
+
+
+button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.8rem; 
+    padding: 1rem 3rem; 
+    background: var(--main-color);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-block; 
+    margin: 2rem 0; 
+}
+
+button a:hover {
+    background: #333;
+}
+
+/* Styles for Questions List */
+.question-list {
+    margin-top: 4rem; 
+}
+
+.question-list ul {
+    padding: 0;
+}
+
+.question-list li {
+    margin-bottom: 4rem; 
+}
+
+.question-list h3 {
+    font-size: 2.5rem; 
+    color: #333;
+    margin-bottom: 1rem; 
+}
+
+.question-list p {
+    font-size: 1.6rem; 
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.question-list small {
+    font-size: 1.4rem; 
+    color: #999;
+}
+
+.question-list strong {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.question-list .vote-count {
+    font-size: 1.4rem; 
+    color: #666;
+}
+
+#latest-questions {
+    text-align: center;
+}
+
+#latest-questions ul {
+    display: inline-block;
+    text-align: left; 
+}
+
+/* question detail */
+/* question_detail_styles.css */
+
+/* Overall Body Styling */
+.question-detail-body {
+    font-family: Arial, sans-serif; 
+    background-color: #f7f7f7; 
+    color: #333; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Container Styling */
+.question-detail-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 2rem; 
+}
+
+/* Question Title Styling */
+.question-title {
+    font-size: 2.5rem;
+    color: #333; 
+    margin-bottom: 1rem;
+}
+
+/* Question Description Styling */
+.question-description {
+    font-size: 1.6rem; 
+    margin-bottom: 1rem; 
+}
+
+/* Question Meta Information Styling */
+.question-meta {
+    font-size: 1.4rem; 
+    color: #999;
+    margin-bottom: 0.5rem; 
+}
+
+/* Vote Form Styling */
+.vote-form {
+    margin-bottom: 2rem; 
+}
+
+/* Vote Button Styling */
+.vote-button {
+    padding: 1rem 2rem; 
+    background-color: #007bff; 
+    color: #fff;
+    border: none; 
+    border-radius: 0.5rem;
+    font-size: 1.6rem; 
+    cursor: pointer; 
+    margin-right: 1rem; 
+}
+
+.vote-button:hover {
+    background-color: #0056b3; 
+}
+
+/* Comment Heading Styling */
+.comment-heading {
+    font-size: 2rem; 
+    color: #333; 
+    margin-bottom: 1.5rem;
+}
+
+/* Comment List Styling */
+.comment-list {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.comment-item {
+    margin-bottom: 2rem; 
+}
+
+/* Comment Content Styling */
+.comment-content {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Comment Meta Information Styling */
+.comment-meta {
+    font-size: 1.4rem; 
+    margin-bottom: 0.5rem; 
+}
+
+/* Comment Form Styling */
+.comment-form {
+    margin-bottom: 2rem; 
+}
+
+/* Comment Textarea Styling */
+.comment-textarea {
+    width: 100%;
+    padding: 1rem; 
+    font-size: 1.6rem; 
+    border: 1px solid #ccc; 
+    border-radius: 0.5rem; 
+    margin-bottom: 1rem; 
+}
+
+/* Comment Button Styling */
+.comment-button {
+    padding: 1rem 2rem; 
+    background-color: #007bff; 
+    color: #fff;
+    border: none; 
+    border-radius: 0.5rem; 
+    font-size: 1.6rem; 
+    cursor: pointer; 
+}
+
+.comment-button:hover {
+    background-color: #0056b3; 
+}
+
+/* Back Link Styling */
+.back-link {
+    color: #007bff; 
+    text-decoration: none; 
+    font-size: 1.6rem; 
+}
+
+.back-link:hover {
+    text-decoration: underline; 
+}
+
+
+@media (max-width: 768px) {
+    .editprofile-container {
+        padding: 2rem 5%;
+    }
+
+    .editprofile-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .userprofile-info label {
+        font-size: 1.4rem;
+    }
+
+    .userprofile-info input {
+        font-size: 1.2rem;
+    }
+
+    .editprofile-btn {
+        font-size: 1.4rem;
+    }
+
+    .check a {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 400px) {
+    html{
+        font-size: 50%;
+    }
+    .heading{
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        padding: 1.5rem;
+        margin: 8rem 1rem 2rem; /* Increase the top margin for mobile screens */
+    }
+
+    .form-group form label {
+        font-size: 1.4rem;
+    }
+
+    .form-group form input[type="text"],
+    .form-group form textarea {
+        font-size: 1.2rem;
+    }
+
+    .querysubumit {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .userprofile-container {
+        padding: 2rem 5%;
+    }
+
+    .userprofile-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .userprofile-info li {
+        font-size: 1.4rem;
+    }
+}
