@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Quora</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css-->
+    <link rel="stylesheet" href="../static/home.css">
+    <script defer src="../static/script.js"></script>
+</head>
+<body>
+    <!-- header section start -->
+    <header>
+        <a href="#home" class="logo"><img src="../static/images/—Pngtree—wolf logo_2306634.png" alt="" width="100"></a>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+            <a href="{{ url_for('quora') }}">view quora</a>
+            <a href="{{ url_for('about') }}">about</a>
+            <a href="{{ url_for('contact') }}">contact</a>
+            {% if 'logged_in' in session %}
+            <a href="{{ url_for('userprofile') }}">Welcome, {{ session['username'] }}</a>
+            <a href="{{ url_for('register') }}">register</a>
+            <a href="{{ url_for('logout') }}">logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">login</a>
+            <a href="{{ url_for('register') }}">register</a>
+            {% endif %}
+        </div>
+        <div class="icon">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-github"></i>
+            <div id="menu-bar" class="fa fa-bars"></div>
+        </div>
+    </header>
+    <!-- home section start-->
+    <section class="home" id="home">
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        <div class="detail">
+            <h1>University Quora - Your Academic Q&A Hub</h1>
+            <p>Welcome to University Quora, a dynamic platform designed exclusively for university students and faculty to ask questions, share knowledge, and engage in meaningful academic discussions. Whether you’re looking for advice on your coursework, seeking insights on university life, or eager to share your expertise, University Quora is your go-to resource.</p>
+            <a href="{{ url_for('addquora') }}" class="btn">Query now</a>
+        </div>
+    </section>
+    <!-- Latest Post-->
+    <section class="top-quora" id="top-quora">
+        <h1>Latest Post</h1>
+        <div class="box-container">
+            {% for question in questions %}
+            <a href="{{ url_for('quora') }}" class="box-link">
+                <div class="box">
+                    <div class="detail">
+                        <h4>{{ question.title|truncate(10, True, '') }}</h4>
+                        <span>{{ question.description|truncate(15, True, '') }}</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- about section start -->
+    <div class="about" id="about">
+        <div class="row">
+            <div class="box">
+                <img src="../static/images/about1.png" alt="" class="img">
+                <img src="../static/images/about2.jpg" alt="">
+            </div>
+            <div class="content">
+                <span>why choose us</span>
+                <h3>About University Quora</h3>
+                <p>Welcome to University Quora, a vibrant and dynamic academic Q&A platform designed exclusively for university students and faculty members. Our mission is to foster a supportive and collaborative learning environment where individuals can ask questions, share knowledge, and engage in meaningful discussions. We believe that education is a journey best taken together, and we aim to bridge the gap between curiosity and knowledge through community-driven interaction.<br>
+
+                    At University Quora, we understand the diverse challenges and opportunities that come with university life. Whether you’re grappling with complex coursework, seeking advice on career paths, or simply curious about a particular topic, our platform is here to connect you with like-minded peers and experienced educators. We encourage users to ask any academic-related questions, share their insights, and contribute to an ever-growing repository of knowledge.<br>
+                    
+                    Our platform is built on the principles of respect, inclusivity, and academic excellence. We strive to create a safe space where users can freely express their thoughts and ideas without fear of judgment. By promoting open dialogue and collaborative learning, we aim to enhance the educational experience for everyone involved.<br>
+                    
+                    Whether you're looking for detailed explanations on challenging subjects, tips for excelling in your studies, or perspectives on university life, University Quora has something for everyone. Our community is dedicated to helping each other succeed, offering support, and sharing valuable resources.<br>
+                    
+                    Join us in building a community where curiosity meets knowledge, and learning never stops. At University Quora, every question is an opportunity for growth, and every answer can spark new insights. Together, we can create a vibrant ecosystem of learning and discovery.</p>
+                <div class="buttons">
+                    <a href="#about" class="btn">Login now</a>
+                    <a href="#about" class="btn">Check quora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---contact section start-->
+    <section class="contact" id="contact">
+        <form action="{{ url_for('contact') }}" method="POST">
+            <div class="heading">
+                <span>any query</span>
+                <h1>contact us</h1>
+            </div>
+            <div class="input-field">
+                <label for="name">name<sup>*</sup></label><br>
+                <input type="text" name="name" required>
+            </div>
+            <div class="input-field">
+                <label for="email">email<sup>*</sup></label><br>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-field">
+                <label for="phone">number<sup>*</sup></label><br>
+                <input type="text" name="phone" required>
+            </div>
+            <div class="input-field">
+                <label for="message">message<sup>*</sup></label><br>
+                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+            </div>
+            <button class="btn" type="submit">send message</button>
+        </form>
+    </section>
+<div class="client">
+    <img src="image/company1.png" alt="">
+    <img src="image/company2.png" alt="">
+    <img src="image/company3.png" alt="">
+    <img src="image/company3.png" alt="">
+    <img src="image/company4.png" alt="">
+</div>
+<footer>
+    <div class="content">
+        <div class="box">
+            <img src="image/pngegg.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis rem pariatur vitae,
+            <br>dignissimos dolorum ipsum expedita voluptates consequatur ipsam eum?</p>
+        </div>
+        <div class="box">
+            <h3>help & information</h3>
+            <a href="">help center</a>
+            <a href="">address store</a>
+            <a href="">privacy policy</a>
+            <a href="">receiver</a>
+            <a href="">out store</a>
+        </div>
+        <div class="box">
+            <h3>about us</h3>
+            <a href="">contact us</a>
+            <a href="">about us</a>
+            <a href="">terms & condition</a>
+            <a href="">event</a>
+            <a href="">our shop</a>
+        </div>
+        <div class="box">
+            <h3>get in touch</h3>
+            <p>Phone : +98878765765</p>
+            <p>Email : checkcheck@gmail.com</p>
+            <p>Location : Bagmati, Nepal</p>
+            <div class="icon">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-github"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>copyright @ 2023<span>code with vector.</span>All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>
