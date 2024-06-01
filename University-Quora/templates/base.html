@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Quora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../static/home.css">
+    <script defer src="../static/script.js"></script>
+</head>
+<body>
+    <!-- header section start -->
+    <header>
+        <a href="#home" class="logo"><img src="image/pngegg.png" alt="" width="100"></a>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+            <a href="{{ url_for('quora') }}">view quora</a>
+            <a href="{{ url_for('about') }}">about</a>
+            <a href="{{ url_for('contact') }}">contact</a>
+            {% if 'logged_in' in session %}
+            <a href="{{ url_for('userprofile') }}">Welcome, {{ session['username'] }}</a>
+            <a href="{{ url_for('register') }}">register</a>
+            <a href="{{ url_for('logout') }}">logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">login</a>
+            <a href="{{ url_for('register') }}">register</a>
+            {% endif %}
+        </div>
+        <div class="icon">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-github"></i>
+            <div id="menu-bar" class="fa fa-bars"></div>
+        </div>
+    </header>
+{% block content %}
+
+{% endblock %}
+    <footer>
+        <div class="content">
+            <div class="box">
+                <img src="image/pngegg.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis rem pariatur vitae,
+                <br>dignissimos dolorum ipsum expedita voluptates consequatur ipsam eum?</p>
+            </div>
+            <div class="box">
+                <h3>help & information</h3>
+                <a href="">help center</a>
+                <a href="">address store</a>
+                <a href="">privacy policy</a>
+                <a href="">receiver</a>
+                <a href="">out store</a>
+            </div>
+            <div class="box">
+                <h3>about us</h3>
+                <a href="">contact us</a>
+                <a href="">about us</a>
+                <a href="">terms & condition</a>
+                <a href="">event</a>
+                <a href="">our shop</a>
+            </div>
+            <div class="box">
+                <h3>get in touch</h3>
+                <p>Phone : +98878765765</p>
+                <p>Email : checkcheck@gmail.com</p>
+                <p>Location : Bagmati, Nepal</p>
+                <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>copyright @ 2023<span>code with vector.</span>All Rights Reserved</p>
+        </div>
+    </footer>
+    </body>
+    </html>
+    
