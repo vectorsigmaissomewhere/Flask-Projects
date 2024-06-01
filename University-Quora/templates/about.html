@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="about" id="about">
+    <div class="row">
+        <div class="box">
+            <img src="../static/images/about1.png" alt="" class="img">
+            <img src="../static/images/about2.jpg" alt="">
+        </div>
+        <div class="content">
+            <span>why choose us</span>
+            <h3>About University Quora</h3>
+            <p>Welcome to University Quora, a vibrant and dynamic academic Q&A platform designed exclusively for university students and faculty members. Our mission is to foster a supportive and collaborative learning environment where individuals can ask questions, share knowledge, and engage in meaningful discussions. We believe that education is a journey best taken together, and we aim to bridge the gap between curiosity and knowledge through community-driven interaction.<br>
+
+                At University Quora, we understand the diverse challenges and opportunities that come with university life. Whether you’re grappling with complex coursework, seeking advice on career paths, or simply curious about a particular topic, our platform is here to connect you with like-minded peers and experienced educators. We encourage users to ask any academic-related questions, share their insights, and contribute to an ever-growing repository of knowledge.<br>
+                
+                Our platform is built on the principles of respect, inclusivity, and academic excellence. We strive to create a safe space where users can freely express their thoughts and ideas without fear of judgment. By promoting open dialogue and collaborative learning, we aim to enhance the educational experience for everyone involved.<br>
+                
+                Whether you're looking for detailed explanations on challenging subjects, tips for excelling in your studies, or perspectives on university life, University Quora has something for everyone. Our community is dedicated to helping each other succeed, offering support, and sharing valuable resources.<br>
+                
+                Join us in building a community where curiosity meets knowledge, and learning never stops. At University Quora, every question is an opportunity for growth, and every answer can spark new insights. Together, we can create a vibrant ecosystem of learning and discovery.</p>
+            <div class="buttons">
+                <a href="{{ url_for('login') }}" class="btn">Login now</a>
+                <a href="{{ url_for('quora') }}" class="btn">Check quora</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
