@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 80px auto 20px auto; /* Adjusted for fixed navbar */
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 8px 12px;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+        }
+        .btn-delete {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('admindashboard') }}"><img src="{{ url_for('static', filename='images/—Pngtree—wolf logo_2306634.png') }}" class="logo"></a>
+        <ul>
+            <li><a href="{{ url_for('admindashboard') }}">Admin Dashboard</a></li>
+            <li><a href="{{ url_for('manageuser') }}">Manage User</a></li>
+            <li><a href="{{ url_for('managequora') }}">Manage Quora</a></li>
+            {% if 'logged_in' in session %}
+            <li>Welcome, {{ session['username'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Manage Users</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Delete User</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>User Password</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.gender }}</td>
+                <td>
+                    <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="margin: 0;">
+                        <button type="submit" class="btn btn-delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
