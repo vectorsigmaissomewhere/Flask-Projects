@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<br><br><br><br><br>
+<body class="question-detail-body">
+    <div class="question-detail-container">
+        <h1 class="question-title">{{ question.title }}</h1>
+        <p class="question-description">{{ question.description }}</p>
+        <p class="question-meta"><small>Posted on {{ question.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+        <p class="question-meta"><strong>Tags:</strong> {{ question.tags }}</p>
+        <p class="question-meta">Votes: {{ question.vote_count() }}</p>
+
+        <form method="POST" class="vote-form">
+            <button type="submit" name="vote" value="1" class="vote-button">Upvote</button>
+            <button type="submit" name="vote" value="-1" class="vote-button">Downvote</button>
+        </form>
+
+        <h2 class="comment-heading">Comments</h2>
+        <ul class="comment-list">
+            {% for comment in comments %}
+                <li class="comment-item">
+                    <p class="comment-content">{{ comment.content }}</p>
+                    <p class="comment-meta"><small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+                    <p class="comment-meta">By: {{ comment.author.username }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <form method="POST" class="comment-form">
+            <textarea name="comment" placeholder="Add a comment..." required class="comment-textarea"></textarea>
+            <button type="submit" class="comment-button">Comment</button>
+        </form>
+
+        <a href="{{ url_for('quora') }}" class="back-link">Back to Quora</a>
+    </div>
+
+{% endblock %}
