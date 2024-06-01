@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='editprofile.css') }}">
+    <title>Edit Profile</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block head %}
+    {% endblock %}
+    {% block content %}
+    <div class="editprofile-container">
+        <h1>Edit Profile</h1>
+        <form action="/submit_edit" method="post">
+            <div class="userprofile-info">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" value="{{ name }}" name="name" required>
+                
+                <label for="username">Username</label>
+                <input type="text" id="username" value="{{ username }}" name="username" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" value="{{ email }}" name="email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter a new password if you want to change it" name="password">
+                
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" value="{{ phone }}" name="phone" required>
+                
+                <label for="gender">Gender</label>
+                <input type="text" id="gender" value="{{ gender }}" name="gender">
+                
+                <button type="submit" class="editprofile-btn">Submit</button>
+                <p class="check"><a href="{{ url_for('userprofile') }}">Check your profile</a></p>        
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
