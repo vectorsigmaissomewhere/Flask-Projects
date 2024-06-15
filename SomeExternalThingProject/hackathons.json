@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Build a python scrapping tools",
+        "description": "Using flask and beautiful soup to build python scraper",
+        "start_date": "2024-06-19",
+        "end_date": "2024-06-29"
+    },
+    {
+        "title": "Build a flask application",
+        "description": "Build and deploy a flask application using heroku",
+        "start_date": "2024-06-16",
+        "end_date": "2024-06-28"
+    }
+]
